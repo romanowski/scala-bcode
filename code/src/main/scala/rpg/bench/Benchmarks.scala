@@ -16,14 +16,16 @@ import org.openjdk.jmh.annotations.Scope
 import org.openjdk.jmh.annotations.State
 import org.openjdk.jmh.annotations.Warmup
 import rpg._
-import rpg.cake.scalac.Cake2SkillTrees
-import rpg.cake.simple.CakeSkillTrees
-import rpg.ooo.OOOSkillTrees
+import rpg.cake.scalac.ScalacCake
+import rpg.cake.simple.SimpleCake
+import rpg.java.ooo.JavaOOO
+import rpg.ooo.ScalaOOO
 import rpg.patmat._
-import rpg.patmat.opt.SteppedOptPatMatSkillTrees
-import rpg.patmat.stepped.SteppedPatMatSkillTrees
-import rpg.patmat.wrapped.WrappedTrySkillTrees
-import rpg.typeclass.naive.TypeclassSkillTrees
+import rpg.patmat.opt.NestedOptPatMat
+import rpg.patmat.nested.SteppedPatMat
+import rpg.patmat.nested.clazz.NestedClazzPatMat
+import rpg.patmat.wrapped.WrappedInTry
+import rpg.typeclass.naive.Typeclass
 
 class BaselinePatMatSkillTrees() extends SkillTrees {
 
@@ -59,27 +61,27 @@ class BenchmarkState(val playerTraits: PlayerTraits) {
 
   private def trees(provider: SkillTrees): Array[SkillTreeRepr[_]] = Array(provider.archeryTree(playerTraits), provider.charismaTree(playerTraits))
 
-  val patMat = trees(new PatMatSkillTrees)
-  val slowPatMat = trees(new SlowPathMatSkillTrees)
+  val patMat = trees(new PatMat)
+  val slowPatMat = trees(new SlowPathMat)
   val classesPatMat = trees(new classes.PathMatSkillTrees)
-  val steppedPatMat = trees(new SteppedPatMatSkillTrees)
-  val steppedClassPatMat = trees(new steppedClass.ImplSkillTrees)
-  val steppedOptPatMat = trees(new SteppedOptPatMatSkillTrees)
+  val steppedPatMat = trees(new SteppedPatMat)
+  val nestedClazzPatMat = trees(new NestedClazzPatMat)
+  val nestedOptPatMat = trees(new NestedOptPatMat)
 
 
-  val typeclass = trees(new TypeclassSkillTrees)
-  val simpleCake = trees(new CakeSkillTrees)
-  val scalacCake = trees(new Cake2SkillTrees)
+  val typeclass = trees(new Typeclass)
+  val simpleCake = trees(new SimpleCake)
+  val scalacCake = trees(new ScalacCake)
 
-  val scalaOOO = trees(new OOOSkillTrees)
+  val scalaOOO = trees(new ScalaOOO)
   val oooSubcalls = trees(new ooo.subcalls.OOOSkillTrees)
-  val oooLambdas = trees(new ooo.lambdas.LambdasSkillTrees)
+  val oooLambdas = trees(new ooo.lambdas.OOOLambdas)
 
   val oooNested = trees(new ooo.nested.OOOSkillTrees)
-  val javaOOO = trees(new java.ooo.SkillTrees)
+  val javaOOO = trees(new JavaOOO)
   val javafast = trees(new java.fast.SkillTrees)
 
-  val wrappedInTry = trees(new WrappedTrySkillTrees)
+  val wrappedInTry = trees(new WrappedInTry)
 
   val baseline = trees(new BaselinePatMatSkillTrees)
 }
@@ -115,11 +117,11 @@ class BenchDefinitions {
 
   @Benchmark def classesPatMat(bs: BenchmarkState) = run(bs.classesPatMat, bs)
 
-  @Benchmark def steppedPatMat(bs: BenchmarkState) = run(bs.steppedPatMat, bs)
+  @Benchmark def nestedPatMat(bs: BenchmarkState) = run(bs.steppedPatMat, bs) // in Chart.scala
 
-  @Benchmark def steppedClassPatMat(bs: BenchmarkState) = run(bs.steppedClassPatMat, bs)
+  @Benchmark def nestedClassPatMat(bs: BenchmarkState) = run(bs.nestedClazzPatMat, bs) // in Chart.scala
 
-  @Benchmark def steppedOptClassPatMat(bs: BenchmarkState) = run(bs.steppedOptPatMat, bs)
+  @Benchmark def nestedOptPatMat(bs: BenchmarkState) = run(bs.nestedOptPatMat, bs) // in Chart.scala
 
   @Benchmark def typeclass(bs: BenchmarkState) = run(bs.typeclass, bs) // in Chart.scala
 
@@ -151,11 +153,12 @@ class BenchDefinitions {
 @Fork(value = 1, jvmArgs = Array("-Xms2G", "-Xmx2G"))
 class HotBenchmark extends BenchDefinitions
 
+
+
 @BenchmarkMode(Array(SingleShotTime))
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @Warmup(iterations = 1, batchSize = 20)
 @Measurement(iterations = 5000, batchSize = 50)
 @Fork(value = 1, jvmArgs = Array("-Xms2G", "-Xmx2G"))
 class WarmingBenchmark extends BenchDefinitions
-
 
