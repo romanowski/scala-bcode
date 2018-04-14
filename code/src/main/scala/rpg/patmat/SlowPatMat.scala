@@ -32,12 +32,12 @@ object SlowNode {
 class SlowPathMat extends SkillTrees with TreeProvider {
   override def archeryTree(traits: PlayerTraits): SkillTreeRepr[_] = {
     new SkillTreeRepr(mkArcheryTree) {
-      override def totalCost(): Int = TailRecNode.totalSkill(tree, traits)
+      override def totalCost(): Int = SlowNode.totalSkill(tree, traits)
     }
   }
   override def charismaTree(traits: PlayerTraits): SkillTreeRepr[_] = {
     new SkillTreeRepr(mkCharismaTree) {
-      override def totalCost(): Int = TailRecNode.totalSkill(tree, traits)
+      override def totalCost(): Int = SlowNode.totalSkill(tree, traits)
     }
   }
 }
