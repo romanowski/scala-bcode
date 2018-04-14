@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>The bytecode we all runnin'</title>
+	<meta name="description" content="TODO">
+	<meta name="author" content="Krzysztof Romanowski">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Gugi" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+	<link rel="icon" href="imgs/favicon-32.png" type="image/png">
+
+	<!-- Code syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<style type="text/css">
+		.lefty {
+			text-align: left;
+			font-size: 65% !important;
+			margin-left: 5% !important;
+		}
+
+		.marked {
+			color: #bf3c3c !important;
+		}
+
+		.marked2 {
+			color: #42affa !important;
+		}
+
+		.bigger {
+			font-size: 130% !important;
+		}
+
+		.small {
+			font-size: 40% !important;
+		}
+
+		img {
+			background: none;
+			border: none;
+			box-shadow: none"
+
+		}
+
+		.monads {
+			z-index: -5;
+			position: fixed;
+			top: -10%;
+			left: -10%;
+			width: 200px;
+		}
+
+		.right {
+			text-align: right;
+			margin-right: -40px !important;
+		}
+
+		.left {
+			text-align: left;
+			margin-left: -40px !important;
+		}
+
+		.big-code code {
+			max-height: 900px !important;
+		}
+
+		.big-code pre {
+			width: 100% !important;
+		}
+
+		span.fragment {
+			display: none;
+		}
+
+		span.fragment.visible {
+			display: inline;
+		}
+
+		html,
+		body,
+		#tv {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		#tv {
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			-webkit-backface-visibility: hidden;
+			-webkit-perspective: 1000;
+		}
+
+		.trees img {
+			margin: 0px !important;
+		}
+	</style>
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+
+
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<img src="imgs/vl.png" alt="Virtus Lab" style="background: none; border: none; box-shadow: none; position: absolute; bottom:10%; right: 10%;"
+	/>
+
+	<!--<canvas id="tv"></canvas>-->
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<section data-markdown data-background-image="imgs/ss_00.jpg" style="padding-top: 235px;">
+				<script type="text/template">
+				
+				### Krzysztof Romanowski
+
+				<div style="margin-left: 36% text-align: left;">
+					<img src="imgs/gh.png" style="margin: 0px"> romanowski
+					<br/>
+					<img src="imgs/twitter.png" style="margin: 0px"> `RomanowskiKr`
+
+				</div>
+				<img src="imgs/vl-white.png" alt="Virtus Lab" style="box-shadow: none"/>
+			</script>
+			</section>
+
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+				### Who am I?
+
+				* 6 years in <span class="marked">Scala</span>
+				* Tooling for scala huge <span class="marked2">monorepo</span>:
+					* over <span class="marked">2,5 MLOC</span>
+					* over 200 devs, <span class="marked">30 PRs/day</span>
+					* compilation over <span class="marked2">40 mins<span class="marked">
+				* <span class="marked">github</span>.com/romanowski/<span class="marked">hoarder</span>
+			</script>
+			</section>
+
+
+			<section data-markdown data-background-image="imgs/vl-tech.png" data-background-size=cover>
+				<script type="text/template">
+				<img src="imgs/vl.png" alt="Virtus Lab" style="margin-left: 380px;
+    width: 350px;
+    margin-top: -100px;
+		">
+
+			</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+				Slides:
+
+				<a href="http://romanowski.github.io/scalasphere-2018" class="marked">romanowski.github.io/scalasphere-2018</a>
+			</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+				## <span class="marked">bytecode</span> we all <span class="marked">runnin'</span>
+			</script>
+			</section>
+
+			<section>
+				<section data-markdown data-background-image="imgs/ss_nn.jpg">
+					<script type="text/template">
+						Do you know how 
+						<h2>
+						<span class="fragment fade-in" data-fragment-index="1">
+							<span class="marked fragment fade-out" data-fragment-index="2">default parameter</span></span></br>
+						<span class="fragment fade-in" data-fragment-index="2"> 
+							<span class="marked fragment fade-out" data-fragment-index="3">self in trains</span> </span></br>
+						<span class="fragment fade-in marked" data-fragment-index="3">private[this]</span>
+						</h2>
+						is implemented?	
+					</script>
+				</section>
+				<section data-markdown data-background-image="imgs/ss_nn.jpg">
+					<script type="text/template">
+						...
+					</script>
+				</section>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/not-today.jpg"/>
+			</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					## <span class="marked">Performance</span>
+
+					### <span class="marked2 fragment">benchmarking</span>
+
+					<img class="fragment" style="max-height: 275px;" src="imgs/no-idea.jpg"/>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/scala-benchmark.png"/>
+
+					<a class="small" href="https://developer.lightbend.com/blog/2017-06-12-faster-scala-compiler/">
+						developer.lightbend.com/blog/2017-06-12-faster-scala-compiler</span>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/li.png"/>
+
+					<a class="small" href="http://www.lihaoyi.com/post/BenchmarkingScalaCollections">lihaoyi.com/post/BenchmarkingScalaCollections</span>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<h4>
+						<span class="fragment zoom-in marked2" data-fragment-index="3">How</span>
+						 can I write fast 
+						 <span class="fragment marked2" data-fragment-index="2">and elegant</span>
+						 <span class="fragment marked" data-fragment-index="1">byte</span>code in Scala?
+					</h4>
+					</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+						<img src="imgs/tree.png"/>
+					<div/>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/player-traits.png"/>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/benchmarks-code.png"/>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/benchmarks-def.png"/>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="imgs/Baselines.png"/>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					I tried:
+
+					- OOO
+						- classes
+						- traits
+						- cake
+					- patternMatching
+						- simple/best/worst case
+						- 2-steps (using interfaces)
+						- cake
+					- typeclasses
+					- java
+					- Rory's implementation
+					- tagless final
+					- ...
+				</script>
+			</section>
+
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					Results:
+
+					/Results/
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					Results:
+
+					/Results/
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					Wait should I even care?
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					JIT, how much is needed to warm jvm?
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					Scalac results after 100+ compilations
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					What warm ups fastest?
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					// median in batched interations...
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_99.jpg" style="padding-bottom: 435px;">
+				<script type="text/template">
+					Thanks!
+			</script>
+			</section>
+
+			<!-- ################################################################################################################ -->
+		</div>
+
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// The full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+
+		(function () {
+			"use strict";
+
+			var canvas = document.querySelector("#tv"),
+				context = canvas.getContext("2d"),
+				scaleFactor = 2.5, // Noise size
+				samples = [],
+				sampleIndex = 0,
+				scanOffsetY = 0,
+				scanSize = 0,
+				FPS = 60,
+				scanSpeed = FPS * 15, // 15 seconds from top to bottom
+				SAMPLE_COUNT = 10;
+
+			window.onresize = function () {
+				canvas.width = canvas.offsetWidth / scaleFactor;
+				canvas.height = canvas.width / (canvas.offsetWidth / canvas.offsetHeight);
+				scanSize = (canvas.offsetHeight / scaleFactor) / 3;
+
+				samples = []
+				for (var i = 0; i < SAMPLE_COUNT; i++)
+					samples.push(generateRandomSample(context, canvas.width, canvas.height));
+			};
+
+			function interpolate(x, x0, y0, x1, y1) {
+				return y0 + (y1 - y0) * ((x - x0) / (x1 - x0));
+			}
+
+
+			function generateRandomSample(context, w, h) {
+				var intensity = [];
+				var random = 0;
+				var factor = h / 50;
+
+				var intensityCurve = [];
+				for (var i = 0; i < Math.floor(h / factor) + factor; i++)
+					intensityCurve.push(Math.floor(Math.random() * 15));
+
+				for (var i = 0; i < h; i++) {
+					var value = interpolate((i / factor), Math.floor(i / factor), intensityCurve[Math.floor(i / factor)], Math.floor(i / factor) + 1, intensityCurve[Math.floor(i / factor) + 1]);
+					intensity.push(value);
+				}
+
+				var imageData = context.createImageData(w, h);
+				for (var i = 0; i < (w * h); i++) {
+					var k = i * 4;
+					var color = Math.floor(36 * Math.random());
+					// Optional: add an intensity curve to try to simulate scan lines
+					color += intensity[Math.floor(i / w)];
+					imageData.data[k] = imageData.data[k + 1] = imageData.data[k + 2] = color;
+					imageData.data[k + 3] = 255;
+				}
+				return imageData;
+			}
+
+			function render() {
+				context.putImageData(samples[Math.floor(sampleIndex)], 0, 0);
+
+				sampleIndex += 30 / FPS; // 1/FPS == 1 second
+				if (sampleIndex >= samples.length) sampleIndex = 0;
+
+				var grd = context.createLinearGradient(0, scanOffsetY, 0, scanSize + scanOffsetY);
+
+				grd.addColorStop(0, 'rgba(255,255,255,0)');
+				grd.addColorStop(0.1, 'rgba(255,255,255,0)');
+				grd.addColorStop(0.2, 'rgba(255,255,255,0.2)');
+				grd.addColorStop(0.3, 'rgba(255,255,255,0.0)');
+				grd.addColorStop(0.45, 'rgba(255,255,255,0.1)');
+				//grd.addColorStop(0.5, 'rgba(255,255,255,1.0)');
+				//grd.addColorStop(0.55, 'rgba(255,255,255,0.55)');
+				//grd.addColorStop(0.6, 'rgba(255,255,255,0.25)');
+				//grd.addColorStop(0.8, 'rgba(255,255,255,0.15)');
+				grd.addColorStop(1, 'rgba(255,255,255,0)');
+
+				context.fillStyle = grd;
+				context.fillRect(0, scanOffsetY, canvas.width, scanSize + scanOffsetY);
+				context.globalCompositeOperation = "lighter";
+
+				//scanOffsetY += (canvas.height / scanSpeed);
+				if (scanOffsetY > canvas.height) scanOffsetY = -(scanSize / 2);
+
+				window.setTimeout(function () {
+					window.requestAnimationFrame(render);
+				}, 1000 / FPS);
+			}
+			window.onresize();
+			window.requestAnimationFrame(render);
+		})();
+
+
+
+
+
+
+
+	</script>
+
+</body>
+
+</html>

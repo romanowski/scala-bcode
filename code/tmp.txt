@@ -1,0 +1,997 @@
+# JMH version: 1.20
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -Xms2G -Xmx2G
+# Warmup: 10 iterations, 100 ms each
+# Measurement: 10 iterations, 200 ms each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: rpg.bench.HotBenchmark.classesPatMat
+# Parameters: (state = 0)
+
+# Run progress: 0.00% complete, ETA 00:00:18
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.459 ±(99.9%) 0.267 us/op
+# Warmup Iteration   2: 0.184 ±(99.9%) 0.068 us/op
+# Warmup Iteration   3: 0.106 ±(99.9%) 0.033 us/op
+# Warmup Iteration   4: 0.141 ±(99.9%) 0.052 us/op
+# Warmup Iteration   5: 0.089 ±(99.9%) 0.019 us/op
+# Warmup Iteration   6: 0.127 ±(99.9%) 0.046 us/op
+# Warmup Iteration   7: 0.146 ±(99.9%) 0.061 us/op
+# Warmup Iteration   8: 0.120 ±(99.9%) 0.045 us/op
+# Warmup Iteration   9: 0.107 ±(99.9%) 0.036 us/op
+# Warmup Iteration  10: 0.120 ±(99.9%) 0.042 us/op
+Iteration   1: 0.124 ±(99.9%) 0.032 us/op
+                 classesPatMat·p0.00:   0.071 us/op
+                 classesPatMat·p0.50:   0.079 us/op
+                 classesPatMat·p0.90:   0.082 us/op
+                 classesPatMat·p0.95:   0.083 us/op
+                 classesPatMat·p0.99:   0.113 us/op
+                 classesPatMat·p0.999:  14.083 us/op
+                 classesPatMat·p0.9999: 14.992 us/op
+                 classesPatMat·p1.00:   14.992 us/op
+
+Iteration   2: 0.116 ±(99.9%) 0.029 us/op
+                 classesPatMat·p0.00:   0.073 us/op
+                 classesPatMat·p0.50:   0.079 us/op
+                 classesPatMat·p0.90:   0.082 us/op
+                 classesPatMat·p0.95:   0.083 us/op
+                 classesPatMat·p0.99:   0.110 us/op
+                 classesPatMat·p0.999:  14.637 us/op
+                 classesPatMat·p0.9999: 15.328 us/op
+                 classesPatMat·p1.00:   15.328 us/op
+
+Iteration   3: 0.107 ±(99.9%) 0.024 us/op
+                 classesPatMat·p0.00:   0.073 us/op
+                 classesPatMat·p0.50:   0.079 us/op
+                 classesPatMat·p0.90:   0.083 us/op
+                 classesPatMat·p0.95:   0.086 us/op
+                 classesPatMat·p0.99:   0.134 us/op
+                 classesPatMat·p0.999:  12.942 us/op
+                 classesPatMat·p0.9999: 14.928 us/op
+                 classesPatMat·p1.00:   14.928 us/op
+
+Iteration   4: 0.126 ±(99.9%) 0.033 us/op
+                 classesPatMat·p0.00:   0.071 us/op
+                 classesPatMat·p0.50:   0.080 us/op
+                 classesPatMat·p0.90:   0.083 us/op
+                 classesPatMat·p0.95:   0.085 us/op
+                 classesPatMat·p0.99:   0.135 us/op
+                 classesPatMat·p0.999:  14.907 us/op
+                 classesPatMat·p0.9999: 16.608 us/op
+                 classesPatMat·p1.00:   16.608 us/op
+
+Iteration   5: 0.114 ±(99.9%) 0.028 us/op
+                 classesPatMat·p0.00:   0.071 us/op
+                 classesPatMat·p0.50:   0.081 us/op
+                 classesPatMat·p0.90:   0.085 us/op
+                 classesPatMat·p0.95:   0.087 us/op
+                 classesPatMat·p0.99:   0.157 us/op
+                 classesPatMat·p0.999:  13.266 us/op
+                 classesPatMat·p0.9999: 15.056 us/op
+                 classesPatMat·p1.00:   15.056 us/op
+
+Iteration   6: 0.135 ±(99.9%) 0.036 us/op
+                 classesPatMat·p0.00:   0.071 us/op
+                 classesPatMat·p0.50:   0.081 us/op
+                 classesPatMat·p0.90:   0.085 us/op
+                 classesPatMat·p0.95:   0.088 us/op
+                 classesPatMat·p0.99:   0.159 us/op
+                 classesPatMat·p0.999:  14.635 us/op
+                 classesPatMat·p0.9999: 15.824 us/op
+                 classesPatMat·p1.00:   15.824 us/op
+
+Iteration   7: 0.126 ±(99.9%) 0.032 us/op
+                 classesPatMat·p0.00:   0.071 us/op
+                 classesPatMat·p0.50:   0.081 us/op
+                 classesPatMat·p0.90:   0.086 us/op
+                 classesPatMat·p0.95:   0.088 us/op
+                 classesPatMat·p0.99:   0.150 us/op
+                 classesPatMat·p0.999:  13.342 us/op
+                 classesPatMat·p0.9999: 15.856 us/op
+                 classesPatMat·p1.00:   15.856 us/op
+
+Iteration   8: 0.123 ±(99.9%) 0.032 us/op
+                 classesPatMat·p0.00:   0.072 us/op
+                 classesPatMat·p0.50:   0.080 us/op
+                 classesPatMat·p0.90:   0.084 us/op
+                 classesPatMat·p0.95:   0.086 us/op
+                 classesPatMat·p0.99:   0.144 us/op
+                 classesPatMat·p0.999:  14.750 us/op
+                 classesPatMat·p0.9999: 15.600 us/op
+                 classesPatMat·p1.00:   15.600 us/op
+
+Iteration   9: 0.120 ±(99.9%) 0.039 us/op
+                 classesPatMat·p0.00:   0.074 us/op
+                 classesPatMat·p0.50:   0.080 us/op
+                 classesPatMat·p0.90:   0.083 us/op
+                 classesPatMat·p0.95:   0.084 us/op
+                 classesPatMat·p0.99:   0.090 us/op
+                 classesPatMat·p0.999:  14.372 us/op
+                 classesPatMat·p0.9999: 51.840 us/op
+                 classesPatMat·p1.00:   51.840 us/op
+
+Iteration  10: 0.112 ±(99.9%) 0.027 us/op
+                 classesPatMat·p0.00:   0.072 us/op
+                 classesPatMat·p0.50:   0.080 us/op
+                 classesPatMat·p0.90:   0.084 us/op
+                 classesPatMat·p0.95:   0.086 us/op
+                 classesPatMat·p0.99:   0.092 us/op
+                 classesPatMat·p0.999:  14.300 us/op
+                 classesPatMat·p0.9999: 17.440 us/op
+                 classesPatMat·p1.00:   17.440 us/op
+
+
+
+Result "rpg.bench.HotBenchmark.classesPatMat":
+  N = 61431
+  mean =      0.120 ±(99.9%) 0.010 us/op
+
+  Histogram, us/op:
+    [ 0.000,  5.000) = 61258 
+    [ 5.000, 10.000) = 2 
+    [10.000, 15.000) = 157 
+    [15.000, 20.000) = 13 
+    [20.000, 25.000) = 0 
+    [25.000, 30.000) = 0 
+    [30.000, 35.000) = 0 
+    [35.000, 40.000) = 0 
+    [40.000, 45.000) = 0 
+    [45.000, 50.000) = 0 
+    [50.000, 55.000) = 1 
+
+  Percentiles, us/op:
+      p(0.0000) =      0.071 us/op
+     p(50.0000) =      0.080 us/op
+     p(90.0000) =      0.084 us/op
+     p(95.0000) =      0.086 us/op
+     p(99.0000) =      0.133 us/op
+     p(99.9000) =     14.169 us/op
+     p(99.9900) =     15.792 us/op
+     p(99.9990) =     51.840 us/op
+     p(99.9999) =     51.840 us/op
+    p(100.0000) =     51.840 us/op
+
+
+# JMH version: 1.20
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -Xms2G -Xmx2G
+# Warmup: 10 iterations, 100 ms each
+# Measurement: 10 iterations, 200 ms each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: rpg.bench.HotBenchmark.patMat
+# Parameters: (state = 0)
+
+# Run progress: 16.67% complete, ETA 00:00:16
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.451 ±(99.9%) 0.232 us/op
+# Warmup Iteration   2: 0.091 ±(99.9%) 0.013 us/op
+# Warmup Iteration   3: 0.084 ±(99.9%) 0.022 us/op
+# Warmup Iteration   4: 0.104 ±(99.9%) 0.034 us/op
+# Warmup Iteration   5: 0.089 ±(99.9%) 0.026 us/op
+# Warmup Iteration   6: 0.110 ±(99.9%) 0.038 us/op
+# Warmup Iteration   7: 0.103 ±(99.9%) 0.034 us/op
+# Warmup Iteration   8: 0.087 ±(99.9%) 0.024 us/op
+# Warmup Iteration   9: 0.101 ±(99.9%) 0.034 us/op
+# Warmup Iteration  10: 0.109 ±(99.9%) 0.037 us/op
+Iteration   1: 0.119 ±(99.9%) 0.030 us/op
+                 patMat·p0.00:   0.065 us/op
+                 patMat·p0.50:   0.071 us/op
+                 patMat·p0.90:   0.074 us/op
+                 patMat·p0.95:   0.076 us/op
+                 patMat·p0.99:   0.122 us/op
+                 patMat·p0.999:  14.640 us/op
+                 patMat·p0.9999: 16.016 us/op
+                 patMat·p1.00:   16.016 us/op
+
+Iteration   2: 0.099 ±(99.9%) 0.022 us/op
+                 patMat·p0.00:   0.065 us/op
+                 patMat·p0.50:   0.071 us/op
+                 patMat·p0.90:   0.076 us/op
+                 patMat·p0.95:   0.082 us/op
+                 patMat·p0.99:   0.114 us/op
+                 patMat·p0.999:  13.047 us/op
+                 patMat·p0.9999: 14.912 us/op
+                 patMat·p1.00:   14.912 us/op
+
+Iteration   3: 0.107 ±(99.9%) 0.026 us/op
+                 patMat·p0.00:   0.064 us/op
+                 patMat·p0.50:   0.071 us/op
+                 patMat·p0.90:   0.078 us/op
+                 patMat·p0.95:   0.085 us/op
+                 patMat·p0.99:   0.121 us/op
+                 patMat·p0.999:  13.953 us/op
+                 patMat·p0.9999: 15.024 us/op
+                 patMat·p1.00:   15.024 us/op
+
+Iteration   4: 0.094 ±(99.9%) 0.020 us/op
+                 patMat·p0.00:   0.065 us/op
+                 patMat·p0.50:   0.071 us/op
+                 patMat·p0.90:   0.074 us/op
+                 patMat·p0.95:   0.077 us/op
+                 patMat·p0.99:   0.099 us/op
+                 patMat·p0.999:  13.025 us/op
+                 patMat·p0.9999: 14.880 us/op
+                 patMat·p1.00:   14.880 us/op
+
+Iteration   5: 0.102 ±(99.9%) 0.025 us/op
+                 patMat·p0.00:   0.065 us/op
+                 patMat·p0.50:   0.073 us/op
+                 patMat·p0.90:   0.078 us/op
+                 patMat·p0.95:   0.083 us/op
+                 patMat·p0.99:   0.119 us/op
+                 patMat·p0.999:  13.104 us/op
+                 patMat·p0.9999: 23.328 us/op
+                 patMat·p1.00:   23.328 us/op
+
+Iteration   6: 0.090 ±(99.9%) 0.016 us/op
+                 patMat·p0.00:   0.067 us/op
+                 patMat·p0.50:   0.074 us/op
+                 patMat·p0.90:   0.083 us/op
+                 patMat·p0.95:   0.088 us/op
+                 patMat·p0.99:   0.121 us/op
+                 patMat·p0.999:  11.559 us/op
+                 patMat·p0.9999: 14.208 us/op
+                 patMat·p1.00:   14.208 us/op
+
+Iteration   7: 0.112 ±(99.9%) 0.028 us/op
+                 patMat·p0.00:   0.067 us/op
+                 patMat·p0.50:   0.073 us/op
+                 patMat·p0.90:   0.079 us/op
+                 patMat·p0.95:   0.087 us/op
+                 patMat·p0.99:   0.116 us/op
+                 patMat·p0.999:  14.577 us/op
+                 patMat·p0.9999: 21.184 us/op
+                 patMat·p1.00:   21.184 us/op
+
+Iteration   8: 0.095 ±(99.9%) 0.020 us/op
+                 patMat·p0.00:   0.066 us/op
+                 patMat·p0.50:   0.072 us/op
+                 patMat·p0.90:   0.080 us/op
+                 patMat·p0.95:   0.090 us/op
+                 patMat·p0.99:   0.114 us/op
+                 patMat·p0.999:  13.041 us/op
+                 patMat·p0.9999: 15.008 us/op
+                 patMat·p1.00:   15.008 us/op
+
+Iteration   9: 0.097 ±(99.9%) 0.020 us/op
+                 patMat·p0.00:   0.065 us/op
+                 patMat·p0.50:   0.074 us/op
+                 patMat·p0.90:   0.085 us/op
+                 patMat·p0.95:   0.090 us/op
+                 patMat·p0.99:   0.118 us/op
+                 patMat·p0.999:  13.005 us/op
+                 patMat·p0.9999: 14.912 us/op
+                 patMat·p1.00:   14.912 us/op
+
+Iteration  10: 0.095 ±(99.9%) 0.020 us/op
+                 patMat·p0.00:   0.064 us/op
+                 patMat·p0.50:   0.072 us/op
+                 patMat·p0.90:   0.085 us/op
+                 patMat·p0.95:   0.092 us/op
+                 patMat·p0.99:   0.119 us/op
+                 patMat·p0.999:  13.054 us/op
+                 patMat·p0.9999: 14.912 us/op
+                 patMat·p1.00:   14.912 us/op
+
+
+
+Result "rpg.bench.HotBenchmark.patMat":
+  N = 73525
+  mean =      0.101 ±(99.9%) 0.007 us/op
+
+  Histogram, us/op:
+    [ 0.000,  2.500) = 73379 
+    [ 2.500,  5.000) = 2 
+    [ 5.000,  7.500) = 2 
+    [ 7.500, 10.000) = 0 
+    [10.000, 12.500) = 9 
+    [12.500, 15.000) = 125 
+    [15.000, 17.500) = 5 
+    [17.500, 20.000) = 1 
+    [20.000, 22.500) = 1 
+    [22.500, 25.000) = 1 
+    [25.000, 27.500) = 0 
+
+  Percentiles, us/op:
+      p(0.0000) =      0.064 us/op
+     p(50.0000) =      0.072 us/op
+     p(90.0000) =      0.081 us/op
+     p(95.0000) =      0.086 us/op
+     p(99.0000) =      0.117 us/op
+     p(99.9000) =     13.136 us/op
+     p(99.9900) =     15.018 us/op
+     p(99.9990) =     23.328 us/op
+     p(99.9999) =     23.328 us/op
+    p(100.0000) =     23.328 us/op
+
+
+# JMH version: 1.20
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -Xms2G -Xmx2G
+# Warmup: 10 iterations, 100 ms each
+# Measurement: 10 iterations, 200 ms each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: rpg.bench.HotBenchmark.slowPatMat
+# Parameters: (state = 0)
+
+# Run progress: 33.33% complete, ETA 00:00:13
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.457 ±(99.9%) 0.289 us/op
+# Warmup Iteration   2: 0.158 ±(99.9%) 0.054 us/op
+# Warmup Iteration   3: 0.094 ±(99.9%) 0.024 us/op
+# Warmup Iteration   4: 0.101 ±(99.9%) 0.030 us/op
+# Warmup Iteration   5: 0.108 ±(99.9%) 0.035 us/op
+# Warmup Iteration   6: 0.102 ±(99.9%) 0.031 us/op
+# Warmup Iteration   7: 0.112 ±(99.9%) 0.037 us/op
+# Warmup Iteration   8: 0.142 ±(99.9%) 0.053 us/op
+# Warmup Iteration   9: 0.117 ±(99.9%) 0.041 us/op
+# Warmup Iteration  10: 0.131 ±(99.9%) 0.048 us/op
+Iteration   1: 0.107 ±(99.9%) 0.025 us/op
+                 slowPatMat·p0.00:   0.072 us/op
+                 slowPatMat·p0.50:   0.079 us/op
+                 slowPatMat·p0.90:   0.082 us/op
+                 slowPatMat·p0.95:   0.084 us/op
+                 slowPatMat·p0.99:   0.118 us/op
+                 slowPatMat·p0.999:  14.094 us/op
+                 slowPatMat·p0.9999: 14.928 us/op
+                 slowPatMat·p1.00:   14.928 us/op
+
+Iteration   2: 0.108 ±(99.9%) 0.024 us/op
+                 slowPatMat·p0.00:   0.074 us/op
+                 slowPatMat·p0.50:   0.081 us/op
+                 slowPatMat·p0.90:   0.095 us/op
+                 slowPatMat·p0.95:   0.097 us/op
+                 slowPatMat·p0.99:   0.127 us/op
+                 slowPatMat·p0.999:  13.391 us/op
+                 slowPatMat·p0.9999: 14.880 us/op
+                 slowPatMat·p1.00:   14.880 us/op
+
+Iteration   3: 0.133 ±(99.9%) 0.035 us/op
+                 slowPatMat·p0.00:   0.072 us/op
+                 slowPatMat·p0.50:   0.082 us/op
+                 slowPatMat·p0.90:   0.084 us/op
+                 slowPatMat·p0.95:   0.086 us/op
+                 slowPatMat·p0.99:   0.128 us/op
+                 slowPatMat·p0.999:  14.633 us/op
+                 slowPatMat·p0.9999: 15.104 us/op
+                 slowPatMat·p1.00:   15.104 us/op
+
+Iteration   4: 0.112 ±(99.9%) 0.027 us/op
+                 slowPatMat·p0.00:   0.072 us/op
+                 slowPatMat·p0.50:   0.080 us/op
+                 slowPatMat·p0.90:   0.083 us/op
+                 slowPatMat·p0.95:   0.085 us/op
+                 slowPatMat·p0.99:   0.115 us/op
+                 slowPatMat·p0.999:  13.236 us/op
+                 slowPatMat·p0.9999: 14.832 us/op
+                 slowPatMat·p1.00:   14.832 us/op
+
+Iteration   5: 0.110 ±(99.9%) 0.027 us/op
+                 slowPatMat·p0.00:   0.074 us/op
+                 slowPatMat·p0.50:   0.080 us/op
+                 slowPatMat·p0.90:   0.083 us/op
+                 slowPatMat·p0.95:   0.084 us/op
+                 slowPatMat·p0.99:   0.103 us/op
+                 slowPatMat·p0.999:  14.667 us/op
+                 slowPatMat·p0.9999: 14.992 us/op
+                 slowPatMat·p1.00:   14.992 us/op
+
+Iteration   6: 0.119 ±(99.9%) 0.031 us/op
+                 slowPatMat·p0.00:   0.072 us/op
+                 slowPatMat·p0.50:   0.081 us/op
+                 slowPatMat·p0.90:   0.084 us/op
+                 slowPatMat·p0.95:   0.085 us/op
+                 slowPatMat·p0.99:   0.123 us/op
+                 slowPatMat·p0.999:  14.677 us/op
+                 slowPatMat·p0.9999: 21.280 us/op
+                 slowPatMat·p1.00:   21.280 us/op
+
+Iteration   7: 0.123 ±(99.9%) 0.032 us/op
+                 slowPatMat·p0.00:   0.073 us/op
+                 slowPatMat·p0.50:   0.081 us/op
+                 slowPatMat·p0.90:   0.084 us/op
+                 slowPatMat·p0.95:   0.085 us/op
+                 slowPatMat·p0.99:   0.124 us/op
+                 slowPatMat·p0.999:  14.727 us/op
+                 slowPatMat·p0.9999: 17.408 us/op
+                 slowPatMat·p1.00:   17.408 us/op
+
+Iteration   8: 0.101 ±(99.9%) 0.021 us/op
+                 slowPatMat·p0.00:   0.071 us/op
+                 slowPatMat·p0.50:   0.081 us/op
+                 slowPatMat·p0.90:   0.083 us/op
+                 slowPatMat·p0.95:   0.084 us/op
+                 slowPatMat·p0.99:   0.089 us/op
+                 slowPatMat·p0.999:  12.950 us/op
+                 slowPatMat·p0.9999: 14.800 us/op
+                 slowPatMat·p1.00:   14.800 us/op
+
+Iteration   9: 0.127 ±(99.9%) 0.033 us/op
+                 slowPatMat·p0.00:   0.074 us/op
+                 slowPatMat·p0.50:   0.082 us/op
+                 slowPatMat·p0.90:   0.085 us/op
+                 slowPatMat·p0.95:   0.087 us/op
+                 slowPatMat·p0.99:   0.123 us/op
+                 slowPatMat·p0.999:  14.656 us/op
+                 slowPatMat·p0.9999: 14.944 us/op
+                 slowPatMat·p1.00:   14.944 us/op
+
+Iteration  10: 0.104 ±(99.9%) 0.023 us/op
+                 slowPatMat·p0.00:   0.072 us/op
+                 slowPatMat·p0.50:   0.081 us/op
+                 slowPatMat·p0.90:   0.084 us/op
+                 slowPatMat·p0.95:   0.086 us/op
+                 slowPatMat·p0.99:   0.123 us/op
+                 slowPatMat·p0.999:  12.869 us/op
+                 slowPatMat·p0.9999: 15.472 us/op
+                 slowPatMat·p1.00:   15.472 us/op
+
+
+
+Result "rpg.bench.HotBenchmark.slowPatMat":
+  N = 61573
+  mean =      0.114 ±(99.9%) 0.009 us/op
+
+  Histogram, us/op:
+    [ 0.000,  2.500) = 61425 
+    [ 2.500,  5.000) = 4 
+    [ 5.000,  7.500) = 0 
+    [ 7.500, 10.000) = 0 
+    [10.000, 12.500) = 12 
+    [12.500, 15.000) = 126 
+    [15.000, 17.500) = 5 
+    [17.500, 20.000) = 0 
+    [20.000, 22.500) = 1 
+    [22.500, 25.000) = 0 
+    [25.000, 27.500) = 0 
+
+  Percentiles, us/op:
+      p(0.0000) =      0.071 us/op
+     p(50.0000) =      0.081 us/op
+     p(90.0000) =      0.084 us/op
+     p(95.0000) =      0.088 us/op
+     p(99.0000) =      0.118 us/op
+     p(99.9000) =     14.292 us/op
+     p(99.9900) =     15.019 us/op
+     p(99.9990) =     21.280 us/op
+     p(99.9999) =     21.280 us/op
+    p(100.0000) =     21.280 us/op
+
+
+# JMH version: 1.20
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -Xms2G -Xmx2G
+# Warmup: 10 iterations, 100 ms each
+# Measurement: 10 iterations, 200 ms each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: rpg.bench.HotBenchmark.steppedClassPatMat
+# Parameters: (state = 0)
+
+# Run progress: 50.00% complete, ETA 00:00:09
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.338 ±(99.9%) 0.225 us/op
+# Warmup Iteration   2: 0.100 ±(99.9%) 0.037 us/op
+# Warmup Iteration   3: 0.086 ±(99.9%) 0.034 us/op
+# Warmup Iteration   4: 0.123 ±(99.9%) 0.059 us/op
+# Warmup Iteration   5: 0.109 ±(99.9%) 0.045 us/op
+# Warmup Iteration   6: 0.124 ±(99.9%) 0.063 us/op
+# Warmup Iteration   7: 0.152 ±(99.9%) 0.078 us/op
+# Warmup Iteration   8: 0.148 ±(99.9%) 0.075 us/op
+# Warmup Iteration   9: 0.143 ±(99.9%) 0.074 us/op
+# Warmup Iteration  10: 0.134 ±(99.9%) 0.069 us/op
+Iteration   1: 0.127 ±(99.9%) 0.044 us/op
+                 steppedClassPatMat·p0.00:   0.055 us/op
+                 steppedClassPatMat·p0.50:   0.064 us/op
+                 steppedClassPatMat·p0.90:   0.070 us/op
+                 steppedClassPatMat·p0.95:   0.074 us/op
+                 steppedClassPatMat·p0.99:   0.130 us/op
+                 steppedClassPatMat·p0.999:  13.344 us/op
+                 steppedClassPatMat·p0.9999: 14.896 us/op
+                 steppedClassPatMat·p1.00:   14.896 us/op
+
+Iteration   2: 0.101 ±(99.9%) 0.034 us/op
+                 steppedClassPatMat·p0.00:   0.057 us/op
+                 steppedClassPatMat·p0.50:   0.064 us/op
+                 steppedClassPatMat·p0.90:   0.076 us/op
+                 steppedClassPatMat·p0.95:   0.078 us/op
+                 steppedClassPatMat·p0.99:   0.120 us/op
+                 steppedClassPatMat·p0.999:  13.164 us/op
+                 steppedClassPatMat·p0.9999: 15.024 us/op
+                 steppedClassPatMat·p1.00:   15.024 us/op
+
+Iteration   3: 0.082 ±(99.9%) 0.026 us/op
+                 steppedClassPatMat·p0.00:   0.055 us/op
+                 steppedClassPatMat·p0.50:   0.060 us/op
+                 steppedClassPatMat·p0.90:   0.070 us/op
+                 steppedClassPatMat·p0.95:   0.071 us/op
+                 steppedClassPatMat·p0.99:   0.115 us/op
+                 steppedClassPatMat·p0.999:  13.293 us/op
+                 steppedClassPatMat·p0.9999: 14.672 us/op
+                 steppedClassPatMat·p1.00:   14.672 us/op
+
+Iteration   4: 0.125 ±(99.9%) 0.043 us/op
+                 steppedClassPatMat·p0.00:   0.055 us/op
+                 steppedClassPatMat·p0.50:   0.074 us/op
+                 steppedClassPatMat·p0.90:   0.078 us/op
+                 steppedClassPatMat·p0.95:   0.079 us/op
+                 steppedClassPatMat·p0.99:   0.114 us/op
+                 steppedClassPatMat·p0.999:  14.619 us/op
+                 steppedClassPatMat·p0.9999: 16.608 us/op
+                 steppedClassPatMat·p1.00:   16.608 us/op
+
+Iteration   5: 0.122 ±(99.9%) 0.042 us/op
+                 steppedClassPatMat·p0.00:   0.055 us/op
+                 steppedClassPatMat·p0.50:   0.066 us/op
+                 steppedClassPatMat·p0.90:   0.086 us/op
+                 steppedClassPatMat·p0.95:   0.087 us/op
+                 steppedClassPatMat·p0.99:   0.128 us/op
+                 steppedClassPatMat·p0.999:  14.451 us/op
+                 steppedClassPatMat·p0.9999: 16.512 us/op
+                 steppedClassPatMat·p1.00:   16.512 us/op
+
+Iteration   6: 0.120 ±(99.9%) 0.043 us/op
+                 steppedClassPatMat·p0.00:   0.055 us/op
+                 steppedClassPatMat·p0.50:   0.065 us/op
+                 steppedClassPatMat·p0.90:   0.068 us/op
+                 steppedClassPatMat·p0.95:   0.069 us/op
+                 steppedClassPatMat·p0.99:   0.172 us/op
+                 steppedClassPatMat·p0.999:  14.625 us/op
+                 steppedClassPatMat·p0.9999: 16.608 us/op
+                 steppedClassPatMat·p1.00:   16.608 us/op
+
+Iteration   7: 0.113 ±(99.9%) 0.043 us/op
+                 steppedClassPatMat·p0.00:   0.056 us/op
+                 steppedClassPatMat·p0.50:   0.060 us/op
+                 steppedClassPatMat·p0.90:   0.061 us/op
+                 steppedClassPatMat·p0.95:   0.063 us/op
+                 steppedClassPatMat·p0.99:   0.122 us/op
+                 steppedClassPatMat·p0.999:  14.667 us/op
+                 steppedClassPatMat·p0.9999: 16.272 us/op
+                 steppedClassPatMat·p1.00:   16.272 us/op
+
+Iteration   8: 0.139 ±(99.9%) 0.070 us/op
+                 steppedClassPatMat·p0.00:   0.057 us/op
+                 steppedClassPatMat·p0.50:   0.066 us/op
+                 steppedClassPatMat·p0.90:   0.069 us/op
+                 steppedClassPatMat·p0.95:   0.070 us/op
+                 steppedClassPatMat·p0.99:   0.141 us/op
+                 steppedClassPatMat·p0.999:  14.890 us/op
+                 steppedClassPatMat·p0.9999: 67.328 us/op
+                 steppedClassPatMat·p1.00:   67.328 us/op
+
+Iteration   9: 0.117 ±(99.9%) 0.042 us/op
+                 steppedClassPatMat·p0.00:   0.056 us/op
+                 steppedClassPatMat·p0.50:   0.067 us/op
+                 steppedClassPatMat·p0.90:   0.071 us/op
+                 steppedClassPatMat·p0.95:   0.074 us/op
+                 steppedClassPatMat·p0.99:   0.130 us/op
+                 steppedClassPatMat·p0.999:  14.681 us/op
+                 steppedClassPatMat·p0.9999: 14.896 us/op
+                 steppedClassPatMat·p1.00:   14.896 us/op
+
+Iteration  10: 0.124 ±(99.9%) 0.042 us/op
+                 steppedClassPatMat·p0.00:   0.056 us/op
+                 steppedClassPatMat·p0.50:   0.076 us/op
+                 steppedClassPatMat·p0.90:   0.084 us/op
+                 steppedClassPatMat·p0.95:   0.089 us/op
+                 steppedClassPatMat·p0.99:   0.141 us/op
+                 steppedClassPatMat·p0.999:  14.538 us/op
+                 steppedClassPatMat·p0.9999: 14.816 us/op
+                 steppedClassPatMat·p1.00:   14.816 us/op
+
+
+
+Result "rpg.bench.HotBenchmark.steppedClassPatMat":
+  N = 42145
+  mean =      0.117 ±(99.9%) 0.014 us/op
+
+  Histogram, us/op:
+    [ 0.000,  5.000) = 41997 
+    [ 5.000, 10.000) = 0 
+    [10.000, 15.000) = 137 
+    [15.000, 20.000) = 9 
+    [20.000, 25.000) = 1 
+    [25.000, 30.000) = 0 
+    [30.000, 35.000) = 0 
+    [35.000, 40.000) = 0 
+    [40.000, 45.000) = 0 
+    [45.000, 50.000) = 0 
+    [50.000, 55.000) = 0 
+    [55.000, 60.000) = 0 
+    [60.000, 65.000) = 0 
+
+  Percentiles, us/op:
+      p(0.0000) =      0.055 us/op
+     p(50.0000) =      0.065 us/op
+     p(90.0000) =      0.078 us/op
+     p(95.0000) =      0.083 us/op
+     p(99.0000) =      0.129 us/op
+     p(99.9000) =     14.455 us/op
+     p(99.9900) =     16.587 us/op
+     p(99.9990) =     67.328 us/op
+     p(99.9999) =     67.328 us/op
+    p(100.0000) =     67.328 us/op
+
+
+# JMH version: 1.20
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -Xms2G -Xmx2G
+# Warmup: 10 iterations, 100 ms each
+# Measurement: 10 iterations, 200 ms each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: rpg.bench.HotBenchmark.steppedOptClassPatMat
+# Parameters: (state = 0)
+
+# Run progress: 66.67% complete, ETA 00:00:06
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.696 ±(99.9%) 0.332 us/op
+# Warmup Iteration   2: 0.153 ±(99.9%) 0.051 us/op
+# Warmup Iteration   3: 0.170 ±(99.9%) 0.079 us/op
+# Warmup Iteration   4: 0.121 ±(99.9%) 0.038 us/op
+# Warmup Iteration   5: 0.144 ±(99.9%) 0.052 us/op
+# Warmup Iteration   6: 0.107 ±(99.9%) 0.028 us/op
+# Warmup Iteration   7: 0.148 ±(99.9%) 0.054 us/op
+# Warmup Iteration   8: 0.132 ±(99.9%) 0.044 us/op
+# Warmup Iteration   9: 0.140 ±(99.9%) 0.051 us/op
+# Warmup Iteration  10: 0.222 ±(99.9%) 0.137 us/op
+Iteration   1: 0.129 ±(99.9%) 0.031 us/op
+                 steppedOptClassPatMat·p0.00:   0.081 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.098 us/op
+                 steppedOptClassPatMat·p0.95:   0.101 us/op
+                 steppedOptClassPatMat·p0.99:   0.147 us/op
+                 steppedOptClassPatMat·p0.999:  13.406 us/op
+                 steppedOptClassPatMat·p0.9999: 14.944 us/op
+                 steppedOptClassPatMat·p1.00:   14.944 us/op
+
+Iteration   2: 0.114 ±(99.9%) 0.025 us/op
+                 steppedOptClassPatMat·p0.00:   0.080 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.097 us/op
+                 steppedOptClassPatMat·p0.95:   0.102 us/op
+                 steppedOptClassPatMat·p0.99:   0.152 us/op
+                 steppedOptClassPatMat·p0.999:  13.026 us/op
+                 steppedOptClassPatMat·p0.9999: 14.992 us/op
+                 steppedOptClassPatMat·p1.00:   14.992 us/op
+
+Iteration   3: 0.178 ±(99.9%) 0.052 us/op
+                 steppedOptClassPatMat·p0.00:   0.080 us/op
+                 steppedOptClassPatMat·p0.50:   0.088 us/op
+                 steppedOptClassPatMat·p0.90:   0.098 us/op
+                 steppedOptClassPatMat·p0.95:   0.102 us/op
+                 steppedOptClassPatMat·p0.99:   0.186 us/op
+                 steppedOptClassPatMat·p0.999:  14.726 us/op
+                 steppedOptClassPatMat·p0.9999: 45.056 us/op
+                 steppedOptClassPatMat·p1.00:   45.056 us/op
+
+Iteration   4: 0.141 ±(99.9%) 0.036 us/op
+                 steppedOptClassPatMat·p0.00:   0.081 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.096 us/op
+                 steppedOptClassPatMat·p0.95:   0.098 us/op
+                 steppedOptClassPatMat·p0.99:   0.173 us/op
+                 steppedOptClassPatMat·p0.999:  14.576 us/op
+                 steppedOptClassPatMat·p0.9999: 18.016 us/op
+                 steppedOptClassPatMat·p1.00:   18.016 us/op
+
+Iteration   5: 0.124 ±(99.9%) 0.030 us/op
+                 steppedOptClassPatMat·p0.00:   0.081 us/op
+                 steppedOptClassPatMat·p0.50:   0.088 us/op
+                 steppedOptClassPatMat·p0.90:   0.097 us/op
+                 steppedOptClassPatMat·p0.95:   0.100 us/op
+                 steppedOptClassPatMat·p0.99:   0.142 us/op
+                 steppedOptClassPatMat·p0.999:  13.667 us/op
+                 steppedOptClassPatMat·p0.9999: 15.296 us/op
+                 steppedOptClassPatMat·p1.00:   15.296 us/op
+
+Iteration   6: 0.137 ±(99.9%) 0.035 us/op
+                 steppedOptClassPatMat·p0.00:   0.080 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.097 us/op
+                 steppedOptClassPatMat·p0.95:   0.100 us/op
+                 steppedOptClassPatMat·p0.99:   0.164 us/op
+                 steppedOptClassPatMat·p0.999:  14.624 us/op
+                 steppedOptClassPatMat·p0.9999: 14.896 us/op
+                 steppedOptClassPatMat·p1.00:   14.896 us/op
+
+Iteration   7: 0.128 ±(99.9%) 0.031 us/op
+                 steppedOptClassPatMat·p0.00:   0.081 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.098 us/op
+                 steppedOptClassPatMat·p0.95:   0.100 us/op
+                 steppedOptClassPatMat·p0.99:   0.163 us/op
+                 steppedOptClassPatMat·p0.999:  14.589 us/op
+                 steppedOptClassPatMat·p0.9999: 15.056 us/op
+                 steppedOptClassPatMat·p1.00:   15.056 us/op
+
+Iteration   8: 0.114 ±(99.9%) 0.025 us/op
+                 steppedOptClassPatMat·p0.00:   0.080 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.097 us/op
+                 steppedOptClassPatMat·p0.95:   0.100 us/op
+                 steppedOptClassPatMat·p0.99:   0.148 us/op
+                 steppedOptClassPatMat·p0.999:  13.149 us/op
+                 steppedOptClassPatMat·p0.9999: 16.512 us/op
+                 steppedOptClassPatMat·p1.00:   16.512 us/op
+
+Iteration   9: 0.163 ±(99.9%) 0.043 us/op
+                 steppedOptClassPatMat·p0.00:   0.081 us/op
+                 steppedOptClassPatMat·p0.50:   0.087 us/op
+                 steppedOptClassPatMat·p0.90:   0.097 us/op
+                 steppedOptClassPatMat·p0.95:   0.099 us/op
+                 steppedOptClassPatMat·p0.99:   0.188 us/op
+                 steppedOptClassPatMat·p0.999:  14.587 us/op
+                 steppedOptClassPatMat·p0.9999: 16.672 us/op
+                 steppedOptClassPatMat·p1.00:   16.672 us/op
+
+Iteration  10: 0.114 ±(99.9%) 0.023 us/op
+                 steppedOptClassPatMat·p0.00:   0.081 us/op
+                 steppedOptClassPatMat·p0.50:   0.092 us/op
+                 steppedOptClassPatMat·p0.90:   0.102 us/op
+                 steppedOptClassPatMat·p0.95:   0.106 us/op
+                 steppedOptClassPatMat·p0.99:   0.117 us/op
+                 steppedOptClassPatMat·p0.999:  12.853 us/op
+                 steppedOptClassPatMat·p0.9999: 15.008 us/op
+                 steppedOptClassPatMat·p1.00:   15.008 us/op
+
+
+
+Result "rpg.bench.HotBenchmark.steppedOptClassPatMat":
+  N = 56555
+  mean =      0.134 ±(99.9%) 0.011 us/op
+
+  Histogram, us/op:
+    [ 0.000,  5.000) = 56374 
+    [ 5.000, 10.000) = 1 
+    [10.000, 15.000) = 170 
+    [15.000, 20.000) = 9 
+    [20.000, 25.000) = 0 
+    [25.000, 30.000) = 0 
+    [30.000, 35.000) = 0 
+    [35.000, 40.000) = 0 
+    [40.000, 45.000) = 0 
+
+  Percentiles, us/op:
+      p(0.0000) =      0.080 us/op
+     p(50.0000) =      0.087 us/op
+     p(90.0000) =      0.097 us/op
+     p(95.0000) =      0.101 us/op
+     p(99.0000) =      0.156 us/op
+     p(99.9000) =     14.165 us/op
+     p(99.9900) =     15.505 us/op
+     p(99.9990) =     45.056 us/op
+     p(99.9999) =     45.056 us/op
+    p(100.0000) =     45.056 us/op
+
+
+# JMH version: 1.20
+# VM version: JDK 1.8.0_121, VM 25.121-b13
+# VM invoker: /usr/lib/jvm/java-8-oracle/jre/bin/java
+# VM options: -Xms2G -Xmx2G
+# Warmup: 10 iterations, 100 ms each
+# Measurement: 10 iterations, 200 ms each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Sampling time
+# Benchmark: rpg.bench.HotBenchmark.steppedPatMat
+# Parameters: (state = 0)
+
+# Run progress: 83.33% complete, ETA 00:00:03
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.688 ±(99.9%) 0.275 us/op
+# Warmup Iteration   2: 0.378 ±(99.9%) 0.068 us/op
+# Warmup Iteration   3: 0.389 ±(99.9%) 0.072 us/op
+# Warmup Iteration   4: 0.412 ±(99.9%) 0.079 us/op
+# Warmup Iteration   5: 0.444 ±(99.9%) 0.093 us/op
+# Warmup Iteration   6: 0.402 ±(99.9%) 0.070 us/op
+# Warmup Iteration   7: 0.384 ±(99.9%) 0.071 us/op
+# Warmup Iteration   8: 0.417 ±(99.9%) 0.083 us/op
+# Warmup Iteration   9: 0.378 ±(99.9%) 0.069 us/op
+# Warmup Iteration  10: 0.432 ±(99.9%) 0.090 us/op
+Iteration   1: 0.392 ±(99.9%) 0.053 us/op
+                 steppedPatMat·p0.00:   0.264 us/op
+                 steppedPatMat·p0.50:   0.278 us/op
+                 steppedPatMat·p0.90:   0.287 us/op
+                 steppedPatMat·p0.95:   0.295 us/op
+                 steppedPatMat·p0.99:   0.436 us/op
+                 steppedPatMat·p0.999:  15.011 us/op
+                 steppedPatMat·p0.9999: 15.360 us/op
+                 steppedPatMat·p1.00:   15.360 us/op
+
+Iteration   2: 0.369 ±(99.9%) 0.049 us/op
+                 steppedPatMat·p0.00:   0.262 us/op
+                 steppedPatMat·p0.50:   0.273 us/op
+                 steppedPatMat·p0.90:   0.285 us/op
+                 steppedPatMat·p0.95:   0.293 us/op
+                 steppedPatMat·p0.99:   0.412 us/op
+                 steppedPatMat·p0.999:  15.059 us/op
+                 steppedPatMat·p0.9999: 21.408 us/op
+                 steppedPatMat·p1.00:   21.408 us/op
+
+Iteration   3: 0.367 ±(99.9%) 0.064 us/op
+                 steppedPatMat·p0.00:   0.265 us/op
+                 steppedPatMat·p0.50:   0.282 us/op
+                 steppedPatMat·p0.90:   0.293 us/op
+                 steppedPatMat·p0.95:   0.299 us/op
+                 steppedPatMat·p0.99:   0.414 us/op
+                 steppedPatMat·p0.999:  15.027 us/op
+                 steppedPatMat·p0.9999: 81.920 us/op
+                 steppedPatMat·p1.00:   81.920 us/op
+
+Iteration   4: 0.395 ±(99.9%) 0.055 us/op
+                 steppedPatMat·p0.00:   0.261 us/op
+                 steppedPatMat·p0.50:   0.273 us/op
+                 steppedPatMat·p0.90:   0.284 us/op
+                 steppedPatMat·p0.95:   0.293 us/op
+                 steppedPatMat·p0.99:   0.417 us/op
+                 steppedPatMat·p0.999:  15.188 us/op
+                 steppedPatMat·p0.9999: 16.512 us/op
+                 steppedPatMat·p1.00:   16.512 us/op
+
+Iteration   5: 0.374 ±(99.9%) 0.050 us/op
+                 steppedPatMat·p0.00:   0.263 us/op
+                 steppedPatMat·p0.50:   0.272 us/op
+                 steppedPatMat·p0.90:   0.283 us/op
+                 steppedPatMat·p0.95:   0.291 us/op
+                 steppedPatMat·p0.99:   0.429 us/op
+                 steppedPatMat·p0.999:  15.109 us/op
+                 steppedPatMat·p0.9999: 20.064 us/op
+                 steppedPatMat·p1.00:   20.064 us/op
+
+Iteration   6: 0.396 ±(99.9%) 0.054 us/op
+                 steppedPatMat·p0.00:   0.262 us/op
+                 steppedPatMat·p0.50:   0.286 us/op
+                 steppedPatMat·p0.90:   0.306 us/op
+                 steppedPatMat·p0.95:   0.354 us/op
+                 steppedPatMat·p0.99:   0.457 us/op
+                 steppedPatMat·p0.999:  14.902 us/op
+                 steppedPatMat·p0.9999: 15.152 us/op
+                 steppedPatMat·p1.00:   15.152 us/op
+
+Iteration   7: 0.586 ±(99.9%) 0.186 us/op
+                 steppedPatMat·p0.00:   0.264 us/op
+                 steppedPatMat·p0.50:   0.281 us/op
+                 steppedPatMat·p0.90:   0.298 us/op
+                 steppedPatMat·p0.95:   0.325 us/op
+                 steppedPatMat·p0.99:   13.315 us/op
+                 steppedPatMat·p0.999:  29.377 us/op
+                 steppedPatMat·p0.9999: 177.664 us/op
+                 steppedPatMat·p1.00:   177.664 us/op
+
+Iteration   8: 0.415 ±(99.9%) 0.057 us/op
+                 steppedPatMat·p0.00:   0.264 us/op
+                 steppedPatMat·p0.50:   0.286 us/op
+                 steppedPatMat·p0.90:   0.301 us/op
+                 steppedPatMat·p0.95:   0.317 us/op
+                 steppedPatMat·p0.99:   0.715 us/op
+                 steppedPatMat·p0.999:  15.579 us/op
+                 steppedPatMat·p0.9999: 17.312 us/op
+                 steppedPatMat·p1.00:   17.312 us/op
+
+Iteration   9: 0.362 ±(99.9%) 0.045 us/op
+                 steppedPatMat·p0.00:   0.265 us/op
+                 steppedPatMat·p0.50:   0.278 us/op
+                 steppedPatMat·p0.90:   0.290 us/op
+                 steppedPatMat·p0.95:   0.295 us/op
+                 steppedPatMat·p0.99:   0.462 us/op
+                 steppedPatMat·p0.999:  14.277 us/op
+                 steppedPatMat·p0.9999: 15.232 us/op
+                 steppedPatMat·p1.00:   15.232 us/op
+
+Iteration  10: 0.360 ±(99.9%) 0.044 us/op
+                 steppedPatMat·p0.00:   0.268 us/op
+                 steppedPatMat·p0.50:   0.279 us/op
+                 steppedPatMat·p0.90:   0.295 us/op
+                 steppedPatMat·p0.95:   0.307 us/op
+                 steppedPatMat·p0.99:   0.417 us/op
+                 steppedPatMat·p0.999:  14.994 us/op
+                 steppedPatMat·p0.9999: 16.608 us/op
+                 steppedPatMat·p1.00:   16.608 us/op
+
+
+
+Result "rpg.bench.HotBenchmark.steppedPatMat":
+  N = 55623
+  mean =      0.400 ±(99.9%) 0.024 us/op
+
+  Histogram, us/op:
+    [  0.000,  12.500) = 55190 
+    [ 12.500,  25.000) = 427 
+    [ 25.000,  37.500) = 2 
+    [ 37.500,  50.000) = 0 
+    [ 50.000,  62.500) = 0 
+    [ 62.500,  75.000) = 0 
+    [ 75.000,  87.500) = 1 
+    [ 87.500, 100.000) = 0 
+    [100.000, 112.500) = 0 
+    [112.500, 125.000) = 0 
+    [125.000, 137.500) = 1 
+    [137.500, 150.000) = 1 
+    [150.000, 162.500) = 0 
+    [162.500, 175.000) = 0 
+    [175.000, 187.500) = 1 
+
+  Percentiles, us/op:
+      p(0.0000) =      0.261 us/op
+     p(50.0000) =      0.278 us/op
+     p(90.0000) =      0.294 us/op
+     p(95.0000) =      0.305 us/op
+     p(99.0000) =      0.475 us/op
+     p(99.9000) =     15.136 us/op
+     p(99.9900) =     34.164 us/op
+     p(99.9990) =    177.664 us/op
+     p(99.9999) =    177.664 us/op
+    p(100.0000) =    177.664 us/op
+
+
+# Run complete. Total time: 00:00:19
+
+Benchmark                                                         (state)    Mode    Cnt    Score   Error  Units
+HotBenchmark.classesPatMat                                              0  sample  61431    0.120 ± 0.010  us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.00                          0  sample           0.071          us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.50                          0  sample           0.080          us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.90                          0  sample           0.084          us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.95                          0  sample           0.086          us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.99                          0  sample           0.133          us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.999                         0  sample          14.169          us/op
+HotBenchmark.classesPatMat:classesPatMat·p0.9999                        0  sample          15.792          us/op
+HotBenchmark.classesPatMat:classesPatMat·p1.00                          0  sample          51.840          us/op
+HotBenchmark.patMat                                                     0  sample  73525    0.101 ± 0.007  us/op
+HotBenchmark.patMat:patMat·p0.00                                        0  sample           0.064          us/op
+HotBenchmark.patMat:patMat·p0.50                                        0  sample           0.072          us/op
+HotBenchmark.patMat:patMat·p0.90                                        0  sample           0.081          us/op
+HotBenchmark.patMat:patMat·p0.95                                        0  sample           0.086          us/op
+HotBenchmark.patMat:patMat·p0.99                                        0  sample           0.117          us/op
+HotBenchmark.patMat:patMat·p0.999                                       0  sample          13.136          us/op
+HotBenchmark.patMat:patMat·p0.9999                                      0  sample          15.018          us/op
+HotBenchmark.patMat:patMat·p1.00                                        0  sample          23.328          us/op
+HotBenchmark.slowPatMat                                                 0  sample  61573    0.114 ± 0.009  us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.00                                0  sample           0.071          us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.50                                0  sample           0.081          us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.90                                0  sample           0.084          us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.95                                0  sample           0.088          us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.99                                0  sample           0.118          us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.999                               0  sample          14.292          us/op
+HotBenchmark.slowPatMat:slowPatMat·p0.9999                              0  sample          15.019          us/op
+HotBenchmark.slowPatMat:slowPatMat·p1.00                                0  sample          21.280          us/op
+HotBenchmark.steppedClassPatMat                                         0  sample  42145    0.117 ± 0.014  us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.00                0  sample           0.055          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.50                0  sample           0.065          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.90                0  sample           0.078          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.95                0  sample           0.083          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.99                0  sample           0.129          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.999               0  sample          14.455          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p0.9999              0  sample          16.587          us/op
+HotBenchmark.steppedClassPatMat:steppedClassPatMat·p1.00                0  sample          67.328          us/op
+HotBenchmark.steppedOptClassPatMat                                      0  sample  56555    0.134 ± 0.011  us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.00          0  sample           0.080          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.50          0  sample           0.087          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.90          0  sample           0.097          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.95          0  sample           0.101          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.99          0  sample           0.156          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.999         0  sample          14.165          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p0.9999        0  sample          15.505          us/op
+HotBenchmark.steppedOptClassPatMat:steppedOptClassPatMat·p1.00          0  sample          45.056          us/op
+HotBenchmark.steppedPatMat                                              0  sample  55623    0.400 ± 0.024  us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.00                          0  sample           0.261          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.50                          0  sample           0.278          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.90                          0  sample           0.294          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.95                          0  sample           0.305          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.99                          0  sample           0.475          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.999                         0  sample          15.136          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p0.9999                        0  sample          34.164          us/op
+HotBenchmark.steppedPatMat:steppedPatMat·p1.00                          0  sample         177.664          us/op

@@ -1,0 +1,30 @@
+- OOO
+    - traits
+    - cake
+    - nested calls
+- patternMatching
+    - 2-steps (using interfaces/classes)
+    - cake
+- typeclasses
+- java
+- Rory's implementation
+- tagless final
+- lambdas powered
+- boxing
+- phantom type
+- shapeless/magnolia/other
+- matriosha
+- ...
+
+- warm-up graph
+- sbt plugin for results from jmh-sbt
+
+- invoke interface as a root for all evil
+
+- specialized functions - are they slower
+
+- 
+
+- better approches to pattern match (int based approach)
+
+- summary
