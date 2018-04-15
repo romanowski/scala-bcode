@@ -394,7 +394,7 @@
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					<img src="code/charts/warming-full/scalaooo,-scalaccake.png"/> 
+					<img src="code/charts/warming-full/java-vs.-scalac.png"/> 
 				</script>
 			</section>
 			
@@ -407,23 +407,38 @@
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					<img src="code/charts/warming-full/scalaooo,-scalaccake,-ooolambdas,-typeclass,-patmat,-wrappedintry.png"/> 
+					<img src="code/charts/warming-full/scala-styles.png"/> 
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					<img src="code/charts/warming-partial/scalaooo,-scalaccake,-ooolambdas,-typeclass,-patmat,-wrappedintry.png"/> 
+					<img src="code/charts/warming-partial/scala-styles.png"/> 
 				</script>
 			</section>
 
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					Try vs. ooo-lambdas
+					<img src="code/charts/warming-full/typeclasses-and-patern-matching.png"/> 
+				</script>
+			</section>
 
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="code/charts/warming-full/lambdas-and-wrapping.png"/> 
+				</script>
+			</section>
 
-					<img src="code/charts/warming-partial/scalaooo,-scalaccake,-ooolambdas,-typeclass,-patmat,-wrappedintry.png"/> 
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="code/charts/warming-full/lambdas-and-wrapping.png"/> 
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="code/charts/warming-partial/pattern-matching.png"/> 
 				</script>
 			</section>
 
@@ -436,28 +451,36 @@
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 					### Summary
-					<span class="fragment">Plain, old boring java-style is the fastest</span>
+					<span class="fragment"><span class="marked2">Java-like-code</span> is <span class="marked">the fastest</span></span>
 					
-					<span class="fragment">Typeclasses seems to be jitted wery well</span>
+					<span class="fragment"><span class="marked2">Typeclasses</span> seems to be <span class="marked">JIT-friendly</span></span>
 					
-					<span class="fragment">Lambds introduce some overhead</span>
+					<span class="fragment"><span class="marked2">Lambdas</span> introduce <span class="marked">acceptable overhead</span></span>
 					
-					<span class="fragment">Pattern matching on traits is really slow</span><span class="fragment">, but there are ways to improve it</span>
+					<span class="fragment">Pattern matching on <span class="marked2">traits</span> is really 
+						<span class="marked">slow</span></span><span class="fragment">, 
+							but there are ways to <span class="marked">improve</span> it</span>
+				
+					<span class="fragment">Everything is <span class="marked">slow</span> on <span class="marked2">cold JVM</span></span><span class="fragment">, 
+						however <span class="marked2">pattern matching</span> is optimized <span class="marked">earlier</span></span>
+			
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					'Fancier' code structure seems to be up to 5-6 sime slower.
+					<span class="marked2">'Fancier'</span> code styles can be up to <span class="marked">5-6 times</span> slower.
 					
-					<span class="fragment">It probably not a problem in your buisness code
+					<span class="fragment">It probably <span class="marked">not a problem</span> in your buisness code
 					</span>
 					<span class="fragment">
-					unless you mostly travrse structures or decmpose compilated types.
+					unless you mostly <span class="marked2">traverse</span> structures or <span class="marked2">decompose</span> complicated types.
 					</span>
 
+					<br/>
+
 					<span class="fragment">
-					However this is what scalac is mostly doing.
+							<span class="marked">Scalac</span> spent most time <span class="marked2">traversing and decomposing</span>.
 					</span>		
 				</script>
 			</section>

@@ -29,10 +29,12 @@ object Charts {
   def txtLocation = file("out.txt").toPath.toAbsolutePath
 
   val combinedCharts = Seq(
-    "" -> Seq("scalaOOO", "scalacCake") ,
-	  "" -> Seq("scalaOOO", "scalacCake", "nestedPatMat") ,
-	  "pattern matching" -> Seq("patMat", "nestedPatMat", "nestedClassPatMat"),
-	  "Scala styles" -> Seq("scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry")
+    "Java vs. Scalac" -> Seq("scalaOOO", "scalacCake") ,
+	  "Patternmatching?" -> Seq("scalaOOO", "scalacCake", "nestedPatMat") ,
+	  "Pattern matching" -> Seq("patMat", "nestedPatMat", "nestedClassPatMat"),
+	  "Scala styles" -> Seq("scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry"),
+    "Typeclasses and Patern matching" -> Seq("scalaOOO", "typeclass", "patMat"),
+    "Lambdas and wrapping" -> Seq("scalaOOO", "oooLambdas", "wrappedInTry")
   )
 
 
@@ -71,7 +73,7 @@ object Charts {
     (chartToPrint).foreach{ case (title, names) =>
 
       val cmds = names.map { name =>
-          s"'${csvs(name)}' with lines title '$name' lw 2"
+          s"'${csvs(name)}' with lines title '$name'"
       }
       (base / "warming").mkdir()
       val fileName = title.replace(" ", "-").toLowerCase
@@ -112,7 +114,7 @@ object Charts {
       val fileName = title.replace(" ", "-").toLowerCase
       val file = (base / s"plot-$fileName.sh").getAbsoluteFile
 
-      val limit = if(full) "" else "every ::0::500"
+      val limit = if(full) "" else "every ::0::650"
 
       val cmds = names.zipWithIndex.flatMap { case (name, index) =>
         val ls = if(names.size > 1) s"ls ${index + 1}" else ""
@@ -146,7 +148,8 @@ object Charts {
     }
   }
 
-  private def summary(baseData: Array[Benchmark], base: File, chartName: String, charKind: String): Unit = {
+  private def summary(baseData: Array[Benchmark], base: File,
+                      chartName: String, charKind: String, baseline: Seq[Benchmark]): Unit = {
     val filename = chartName.replace(" ", "-")
 
     def values(b: Benchmark) = {
@@ -155,21 +158,23 @@ object Charts {
     }
 
     val data = baseData.toList
-    val baseline = data.filter(_.name == "baseline")
 
     val csv = data.sortBy(_.primaryMetric.scorePercentiles.`90.0`).map(values(_).mkString("\t")).mkString("\n")
     val dataFile = base / s"$filename.csv"
     IO.write(dataFile, csv)
 
-    def plotSet(name: String, column: Int) =
-      s"'$dataFile' using ${column + 2}:xtic(1) title '$name'"
+    def plotSet(name: String, column: Int) = Seq(
+      s"'$dataFile' using ${column + 2}:xtic(1) title '$name'",
+      s"""'$dataFile' using ($$0-0.25+${column}./5):(0):(fn($$${column + 2})) """ +
+        """with labels font "Helvetica,9" rotate by 90 left notitle"""
+    )
 
     val names = Seq("p99.0", "p95.0", "p90.0", "p50.0")
 
     val baselineCmd = baseline.map(_.primaryMetric.scorePercentiles.`95.0`)
       .map(v => s"$v ls 6 lw 3 title 'baseline'")
 
-    val plotCmd = names.zipWithIndex.map((plotSet _).tupled) ++ baselineCmd
+    val plotCmd = baselineCmd ++ names.zipWithIndex.flatMap((plotSet _).tupled)
 
     val command =
       s"""
@@ -177,9 +182,10 @@ object Charts {
          |set output '$chartBase/$filename-$charKind.png'
          |set key left
          |set grid y
-         |${if (data.size < 6) "#" else ""}set xtics rotate
+         |fn(v) = sprintf(" %.3f", v)
+         |${if (data.size < 6) "#" else ""} set xtics rotate by -15
          |set style data histograms
-         |set boxwidth 0.80
+         |set style histogram clustered gap 1
          |set style fill solid 1.0 border -1
          |set title '$chartName [us/op] - $charKind' font "Helvetica,21"
          |plot ${plotCmd.mkString(", ")}
@@ -205,23 +211,23 @@ object Charts {
     "Baselines" -> (_.contains("baseline")),
     "Java vs. Scalac" -> Set("baseline", "javaOOO", "scalacCake"),
     "Java, OOO in Scala and Cake" ->
-      Set("baseline", "javaOOO", "scalaOOO", "scalacCake"),
+      Set("javaOOO", "scalaOOO", "scalacCake"),
     "Scala code styles 0..4" ->
-      Set("baseline", "scalaOOO", "scalacCake"),
+      Set("scalaOOO", "scalacCake"),
     "Scala code styles 1..4" ->
-      Set("baseline", "scalaOOO", "scalacCake", "patMat"),
+      Set("scalaOOO", "scalacCake", "patMat"),
     "Scala code styles 2..4" ->
-      Set("baseline", "scalaOOO", "scalacCake", "patMat", "wrappedInTry"),
+      Set("scalaOOO", "scalacCake", "patMat", "wrappedInTry"),
     "Scala code styles 3..4" ->
-      Set("baseline", "scalaOOO", "scalacCake", "oooLambdas", "patMat", "wrappedInTry"),
+      Set("scalaOOO", "scalacCake", "oooLambdas", "patMat", "wrappedInTry"),
     "Scala code styles 4..4" ->
-      Set("baseline", "scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry"),
+      Set("scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry"),
     "Fixing pattern matching" ->
-      Set("baseline", "scalaOOO", "oooLambdas", "patMat", "nestedPatMat"),
+      Set("scalaOOO", "oooLambdas", "patMat", "nestedPatMat"),
     "Classes pattern matching" ->
-      Set("baseline", "scalaOOO", "oooLambdas", "patMat", "nestedPatMat", "nestedClassPatMat"),
+      Set("scalaOOO", "oooLambdas", "patMat", "nestedPatMat", "nestedClassPatMat"),
     "Optimized pattern matching" ->
-      Set("baseline", "scalaOOO", "oooLambdas", "patMat", "nestedPatMat", "nestedClassPatMat", "nestedOptPatMat")
+      Set("scalaOOO", "oooLambdas", "patMat", "nestedPatMat", "nestedClassPatMat", "nestedOptPatMat")
   )
 
   def implementWarmupChart = warmupChart := (try {
@@ -239,8 +245,8 @@ object Charts {
     drawWarmingCharts(warming, base)
 
     for ((title, isApplicable) <- charts) {
-      summary(hot.filter(b => isApplicable(b.name)), base, title, "Hot")
-      summary(warming.filter(b => isApplicable(b.name)), base, title, "Warming")
+      summary(hot.filter(b => isApplicable(b.name)), base, title, "Hot",hot.filter(_.name == "baseline"))
+      summary(warming.filter(b => isApplicable(b.name)), base, title, "Warming", warming.filter(_.name == "baseline"))
     }
 
     drawWarmupTimes(warmingJit, base)
