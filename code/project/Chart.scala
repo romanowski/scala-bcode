@@ -27,9 +27,66 @@ object Charts {
   def txtLocation = file("out.txt").toPath.toAbsolutePath
 
   val combinedCharts = Seq(
-    Seq("baseline", "scalaOOO", "scalacCake") //,
-    // Seq("baseline", "patMat", "nestedPatMat", "nestedClassPatMat")
+    Seq("scalaOOO", "scalacCake") ,
+    Seq("scalaOOO", "scalacCake", "nestedPatMat") ,
+    Seq("patMat", "nestedPatMat", "nestedClassPatMat"),
+    Seq("scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry")
   )
+
+
+  private def drawWarmupTimes(data: Array[Benchmark], base: File): Unit = try {
+    val csvs: Map[String, File] = {
+      var fullData = Map[String, Seq[Double]]()
+      var currentName = ""
+      var currentData = List.empty[Double]
+      val Name = "# Benchmark: rpg.bench.WarmingJitBenchmark.(.+)".r
+      val DataPoint = "# Warmup Iteration.+: (.+) ±.+".r
+      IO.readLines(txtLocation.toFile).foreach {
+        case Name(name) =>
+          if(currentData.nonEmpty) fullData += (currentName -> currentData.reverse)
+          currentName = name
+          currentData = Nil
+        case DataPoint(str) =>
+          currentData ::= str.toDouble
+        case _ =>
+      }
+      if(currentData.nonEmpty) fullData += (currentName -> currentData.reverse)
+      fullData.map {
+        case (name , v) =>
+          val points = v.zipWithIndex.map{case (n, i) => s"$n,$i"}.mkString("\n")
+          val file = base / "warming" / s"$name.csv"
+          IO.write(file, points)
+          name -> file
+      }
+    }
+    (chartBase/ "warmup").mkdirs()
+
+    (data.map(b => Seq(b.name)) ++ combinedCharts ++ Seq(data.map(_.name).toSeq)).foreach{ names =>
+
+      val cmds = names.map { name =>
+          s"'${csvs(name)}' with lines title '$name' lw 2"
+      }
+      (base / "warming").mkdir()
+      val title = if(names.length == data.length) "All" else names.mkString(", ")
+      val fileName = title.replace(" ", "-").toLowerCase
+      val file = (base / "warmup" / s"plot-$fileName.sh").getAbsoluteFile
+
+      val command =
+        s"""set term png size 910, 520 font "Helvetica,12"
+           |set output '$chartBase/warmup/$fileName.png'
+           |set title '$title' font "Helvetica,21"
+           |
+           |plot ${cmds.mkString(", ")}
+           |""".stripMargin
+
+      IO.write(file, command)
+      import scala.sys.process._
+      s"gnuplot $file".!
+    }
+  } catch {
+    case e =>
+      e.printStackTrace()
+  }
 
   private def drawWarmingCharts(data: Array[Benchmark], base: File): Unit = {
     (chartBase / "warming-full").mkdir()
@@ -50,20 +107,26 @@ object Charts {
       val fileName = title.replace(" ", "-").toLowerCase
       val file = (base / s"plot-$fileName.sh").getAbsoluteFile
 
-      val limit = if(full) "" else "every :::::500"
+      val limit = if(full) "" else "every ::0::500"
 
-      val cmds = names.map(name =>
-        s"'${csvs(name)}' $limit with lines title '$name', ${avgs(name)} title 'p0.50 = ${avgs(name)}' lw 3"
-      )
+      val cmds = names.zipWithIndex.flatMap { case (name, index) =>
+        val ls = if(names.size > 1) s"ls ${index + 1}" else ""
+        Seq(
+          s"'${csvs(name)}' $limit with lines title '$name' $ls",
+          s"${avgs(name)} title 'p0.50 = ${"%.4f".format(avgs(name))}' $ls lw 3"
+        )
+      }
 
+      val maxAvg = names.map(avgs).max
+      val shift = if(maxAvg > 32) 32 else 0
       val command =
-        s"""set term png size 910, 520 font "Helvetica,14"
+        s"""set term png size 910, 520 font "Helvetica,12"
            |set output '$chartBase/warming-${if (full) "full" else "partial"}/$fileName.png'
            |set title '$title' font "Helvetica,21"
-           |set key outside;
-           |set key right top;
+           |#set key outside;
+           |#set key right top;
            |${if (full) "" else "set logscale y 2"}
-           |set yrange [1:${if (full) 28 else 256}]
+           |set yrange [3:${if (full) 42 + shift else 150}]
            |plot ${cmds.mkString(", ")}
            |""".stripMargin
 
@@ -77,38 +140,6 @@ object Charts {
         drawChart(data)
         drawChart(data, full = false)
     }
-
-//    data.zipWithIndex.foreach { case (benchmark, index) =>
-//      val rawTimes = benchmark.primaryMetric.rawData.get.head
-//      val avg = benchmark.primaryMetric.scorePercentiles.`50.0`
-//      val strAvg = "%.4f".format(avg)
-//
-//
-//      def draw(rawData: Array[Double]): Unit = {
-//        import benchmark._
-//        val csv = rawData.zipWithIndex.map { case (t, i) => s"$i\t$t" }.mkString("\n")
-//        val dataFile = base / s"data-$name.csv"
-//        IO.write(dataFile, csv)
-//        val file = (base / s"plot-$name.sh").getAbsoluteFile
-//        val fullChart = rawData == rawTimes
-//        val ls = index % 9
-//        val command =
-//          s"""set term png size 910, 520 font "Helvetica,14"
-//             |set output '$chartBase/warming-${if (fullChart) "full" else "partial"}/${name.replace(" ", "-").toLowerCase}.png'
-//             |set title '$name' font "Helvetica,21"
-//             |${if (fullChart) "" else "set logscale y 2"}
-//             |set yrange [1:${if (fullChart) 28 else 256}]
-//             |plot '$dataFile' with lines lt $ls title 'times', $avg title 'p0.50 = $strAvg' lt ${ls + 1} lw 3
-//             |""".stripMargin
-//
-//        IO.write(file, command)
-//        import scala.sys.process._
-//        s"gnuplot $file".!
-//      }
-//
-//      draw(rawTimes)
-//      draw(rawTimes.take(500))
-//    }
   }
 
   private def summary(baseData: Array[Benchmark], base: File, chartName: String, charKind: String): Unit = {
@@ -195,7 +226,8 @@ object Charts {
     assert(jsonData.exists(), "Run benchmarks before!")
     val data = IO.read(jsonData).parseJson.convertTo[Array[Benchmark]]
     //streams.value.log.success(s"Saving to $base using: ${data.toSeq.mkString("\n")}")
-    val (warming, hot) = data.partition(_.primaryMetric.rawData.isDefined)
+    val (warming, allHot) = data.partition(_.primaryMetric.rawData.isDefined)
+    val (hot, warmingJit) = allHot.partition(_.benchmark.startsWith("rpg.bench.HotBenchmark"))
 
     IO.delete(chartBase)
     chartBase.mkdir()
@@ -206,6 +238,8 @@ object Charts {
       summary(hot.filter(b => isApplicable(b.name)), base, title, "Hot")
       summary(warming.filter(b => isApplicable(b.name)), base, title, "Warming")
     }
+
+    drawWarmupTimes(warmingJit, base)
   }
 
   private val benchmarkCmd = s" .*Benchmark.* -rff $jsonLocation -rf json -o $txtLocation"

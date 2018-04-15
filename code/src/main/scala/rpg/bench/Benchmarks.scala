@@ -162,3 +162,10 @@ class HotBenchmark extends BenchDefinitions
 @Fork(value = 1, jvmArgs = Array("-Xms2G", "-Xmx2G"))
 class WarmingBenchmark extends BenchDefinitions
 
+
+@BenchmarkMode(Array(SampleTime))
+@OutputTimeUnit(TimeUnit.MICROSECONDS)
+@Warmup(iterations = 120, time = 50, timeUnit = TimeUnit.MICROSECONDS)
+@Measurement(iterations = 1, time = 200, timeUnit = TimeUnit.MILLISECONDS)
+@Fork(value = 1, jvmArgs = Array("-Xms2G", "-Xmx2G"))
+class WarmingJitBenchmark extends BenchDefinitions
