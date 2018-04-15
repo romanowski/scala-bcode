@@ -140,7 +140,7 @@
 					<img src="imgs/twitter.png" style="margin: 0px"> `RomanowskiKr`
 
 				</div>
-				<img src="imgs/vl-white.png" alt="Virtus Lab" style="box-shadow: none"/>
+				<img src="imgs/vl-white.png" alt="Virtus Lab" style="box-shadow: none; max-width:260px;"/>
 			</script>
 			</section>
 
@@ -371,6 +371,10 @@
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 					And we can check such things for hours...
+
+					<br/>	
+
+					Try it yourself: github.com/romanowski/scala-bcode
 				</script>
 			</section>
 
@@ -390,23 +394,77 @@
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					<img src="code/charts/warming-full/baseline,-scalaooo,-scalaccake.png"/> 
+					<img src="code/charts/warming-full/scalaooo,-scalaccake.png"/> 
+				</script>
+			</section>
+			
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					Warmup charts for different scala styles...
+					<img src="imgs/lines-paiting.jpg" class="fragment"/> 
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-					...
+					<img src="code/charts/warming-full/scalaooo,-scalaccake,-ooolambdas,-typeclass,-patmat,-wrappedintry.png"/> 
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					<img src="code/charts/warming-partial/scalaooo,-scalaccake,-ooolambdas,-typeclass,-patmat,-wrappedintry.png"/> 
+				</script>
+			</section>
+
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					Try vs. ooo-lambdas
+
+
+					<img src="code/charts/warming-partial/scalaooo,-scalaccake,-ooolambdas,-typeclass,-patmat,-wrappedintry.png"/> 
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					github.com/romanowski/scala-bcode
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 					### Summary
-					- Plain, old boring OOO is the fastest
-					- If Jitted everthing is fine
-					- Pattern matching on traits is really slow
-					....
+					<span class="fragment">Plain, old boring java-style is the fastest</span>
+					
+					<span class="fragment">Typeclasses seems to be jitted wery well</span>
+					
+					<span class="fragment">Lambds introduce some overhead</span>
+					
+					<span class="fragment">Pattern matching on traits is really slow</span><span class="fragment">, but there are ways to improve it</span>
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					'Fancier' code structure seems to be up to 5-6 sime slower.
+					
+					<span class="fragment">It probably not a problem in your buisness code
+					</span>
+					<span class="fragment">
+					unless you mostly travrse structures or decmpose compilated types.
+					</span>
+
+					<span class="fragment">
+					However this is what scalac is mostly doing.
+					</span>		
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+					> Trust no one, bench everything.
 				</script>
 			</section>
 

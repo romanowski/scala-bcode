@@ -4,6 +4,8 @@ import sbt._
 import spray.json.DefaultJsonProtocol._
 import spray.json._
 
+import scala.util.control.NonFatal
+
 object Charts {
   val warmupChart = TaskKey[Unit]("drawCharts")
   val runBenchmark = TaskKey[Unit]("runBechmarks")
@@ -27,10 +29,10 @@ object Charts {
   def txtLocation = file("out.txt").toPath.toAbsolutePath
 
   val combinedCharts = Seq(
-    Seq("scalaOOO", "scalacCake") ,
-    Seq("scalaOOO", "scalacCake", "nestedPatMat") ,
-    Seq("patMat", "nestedPatMat", "nestedClassPatMat"),
-    Seq("scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry")
+    "" -> Seq("scalaOOO", "scalacCake") ,
+	  "" -> Seq("scalaOOO", "scalacCake", "nestedPatMat") ,
+	  "pattern matching" -> Seq("patMat", "nestedPatMat", "nestedClassPatMat"),
+	  "Scala styles" -> Seq("scalaOOO", "scalacCake", "oooLambdas", "typeclass", "patMat", "wrappedInTry")
   )
 
 
@@ -61,13 +63,17 @@ object Charts {
     }
     (chartBase/ "warmup").mkdirs()
 
-    (data.map(b => Seq(b.name)) ++ combinedCharts ++ Seq(data.map(_.name).toSeq)).foreach{ names =>
+    val chartToPrint =
+	    data.map(b => b.name -> Seq(b.name)) ++
+		    combinedCharts ++
+		    Seq("All" -> data.map(_.name).toSeq)
+
+    (chartToPrint).foreach{ case (title, names) =>
 
       val cmds = names.map { name =>
           s"'${csvs(name)}' with lines title '$name' lw 2"
       }
       (base / "warming").mkdir()
-      val title = if(names.length == data.length) "All" else names.mkString(", ")
       val fileName = title.replace(" ", "-").toLowerCase
       val file = (base / "warmup" / s"plot-$fileName.sh").getAbsoluteFile
 
@@ -102,8 +108,7 @@ object Charts {
 
     val avgs = data.map(bench => bench.name -> bench.primaryMetric.scorePercentiles.`50.0`).toMap
 
-    def drawChart(names: Seq[String], full: Boolean = true): Unit ={
-      val title = names.mkString(", ")
+    def drawChart(names: Seq[String], title: String, full: Boolean = true): Unit ={
       val fileName = title.replace(" ", "-").toLowerCase
       val file = (base / s"plot-$fileName.sh").getAbsoluteFile
 
@@ -134,11 +139,10 @@ object Charts {
       import scala.sys.process._
       s"gnuplot $file".!
     }
-    val toDraw =  data.map(d => Seq(d.name)) ++ combinedCharts
-    toDraw.foreach {
-      data =>
-        drawChart(data)
-        drawChart(data, full = false)
+    val toDraw =  data.map(d => d.name -> Seq(d.name)) ++ combinedCharts
+    toDraw.foreach { case (title, data) =>
+        drawChart(data, title)
+        drawChart(data, title, full = false)
     }
   }
 
@@ -220,7 +224,7 @@ object Charts {
       Set("baseline", "scalaOOO", "oooLambdas", "patMat", "nestedPatMat", "nestedClassPatMat", "nestedOptPatMat")
   )
 
-  def implementWarmupChart = warmupChart := {
+  def implementWarmupChart = warmupChart := (try {
     val base = streams.value.cacheDirectory
     val jsonData = jsonLocation.toFile
     assert(jsonData.exists(), "Run benchmarks before!")
@@ -240,7 +244,10 @@ object Charts {
     }
 
     drawWarmupTimes(warmingJit, base)
-  }
+  } catch {
+		case NonFatal(e) =>
+			e.printStackTrace()
+	})
 
   private val benchmarkCmd = s" .*Benchmark.* -rff $jsonLocation -rf json -o $txtLocation"
 
