@@ -276,7 +276,11 @@
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
+					<div>
 						<img src="code/charts/Java-vs.-Scalac-Hot.png"/>
+					</div>
+					<div class="small" style="margin-top: -20px;">
+						~93% slower (0.259 vs. 0.134) | ~329% more overhead (0.163 vs. 0.038)</div>
 				</script>
 			</section>
 
@@ -295,24 +299,39 @@
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 						#### Pattern matching
-						<img src="code/charts/Scala-code-styles-0..4-Hot.png" style="position: absolute; z-index: -1;"/> 
-						<img src="code/charts/Scala-code-styles-1..4-Hot.png" class="fragment"/>
+						<div>
+							<img src="code/charts/Scala-code-styles-0..4-Hot.png" style="position: absolute; z-index: -1;"/> 
+							<img src="code/charts/Scala-code-styles-1..4-Hot.png" class="fragment"/>
+						</div>
+						<div class="fragment small" style="margin-top: -20px;">
+							~82% slower (0.220 vs. 0.121) | ~396% more overhead (0.124 vs. 0.025)							)
+						</div>
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 						#### wrapping (in Try)
+						<div>
 						<img src="code/charts/Scala-code-styles-1..4-Hot.png" style="position: absolute; z-index: -1;"/> 
 						<img src="code/charts/Scala-code-styles-2..4-Hot.png" class="fragment"/>
+					</div>
+					<div class="fragment small" style="margin-top: -20px;">
+							~310% slower (0.496 vs. 0.121) | ~1500% more overhead (0.4 vs. 0.025)
+					</div>
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 						#### lambdas
-						<img src="code/charts/Scala-code-styles-2..4-Hot.png" style="position: absolute; z-index: -1;"/> 
-						<img src="code/charts/Scala-code-styles-3..4-Hot.png" class="fragment"/>
+						<div>
+							<img src="code/charts/Scala-code-styles-2..4-Hot.png" style="position: absolute; z-index: -1;"/> 
+							<img src="code/charts/Scala-code-styles-3..4-Hot.png" class="fragment"/>
+						</div>
+						<div class="fragment small" style="margin-top: -20px;">
+								~122% slower (0.269 vs. 0.121) | ~592% more overhead (0.173 vs. 0.025)
+						</div>  
 				</script>
 			</section>
 
@@ -320,8 +339,13 @@
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
 						#### typeclases
+						<div>
 						<img src="code/charts/Scala-code-styles-3..4-Hot.png" style="position: absolute; z-index: -1;"/> 
 						<img src="code/charts/Scala-code-styles-4..4-Hot.png" class="fragment"/>
+						</div>
+						<div class="fragment small" style="margin-top: -20px;">
+								~70% slower (0.206 vs. 0.121) | ~340% more overhead (0.11 vs. 0.025)
+						</div>   
 				</script>
 			</section>
 
@@ -348,13 +372,28 @@
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-						<img src="code/charts/Classes-pattern-matching-Hot.png"/> 
+						<img src="code/charts/Fixing-pattern-matching-Hot.png"/>
+						<div class="small" style="margin-top: -20px;">
+								~764% slower (1.046 vs. 0.121) | ~3700% more overhead (0.95 vs. 0.025)
+						</div> 
 				</script>
 			</section>
 
 			<section data-markdown data-background-image="imgs/ss_nn.jpg">
 				<script type="text/template">
-						<img src="code/charts/Optimized-pattern-matching-Hot.png"/> 
+						<img src="code/charts/Classes-pattern-matching-Hot.png"/>
+						<div class="small" style="margin-top: -20px;">
+								~119% slower (0.265 vs. 0.121) | ~575% more overhead (0.119 vs. 0.025)
+						</div> 
+				</script>
+			</section>
+
+			<section data-markdown data-background-image="imgs/ss_nn.jpg">
+				<script type="text/template">
+						<img src="code/charts/Optimized-pattern-matching-Hot.png"/>
+						<div class="small" style="margin-top: -20px;">
+								~143% slower (0.294 vs. 0.121) | ~692% more overhead (0.198 vs. 0.025)
+						</div>  
 				</script>
 			</section>
 
