@@ -38,9 +38,8 @@ case class WisSkill(name: String) extends Skill
 
 object Node {
   final val TreeType = 1
-  final val StepType = 2
+  final val StepType = 2  
   final val SkillType = 4
-
 
   def totalSkill(node: Node, traits: PlayerTraits): Int = node.id match {
     case TreeType => node match {
