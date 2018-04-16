@@ -12,11 +12,11 @@ To draw chart all you need to do is run `drawCharts` task in sbt.
 
 ## What charts are drawn?
 
- - Results on [HotBenchmarks](). Drawn as histogram for main percentiles (.50, .90, .95 and .99)
- - Results on [WarmingBenchmarks]() benchmark. Drawn line chart for all and first 600 iteration.
- - Results on [WarmupBenchmarks]() benchmark. Drawn line chart for all and first 600 iteration.
+ - Results on [HotBenchmarks](src/main/scala/rpg/bench/Benchmarks.scala#L149-L154). Drawn as histogram for main percentiles (.50, .90, .95 and .99)
+ - Results on [WarmingBenchmarks](src/main/scala/rpg/bench/Benchmarks.scala#L158-L163) benchmark. Drawn line chart for all and first 600 iteration.
+ - Results on [WarmupBenchmarks](src/main/scala/rpg/bench/Benchmarks.scala#L166-L171) benchmark. Drawn line chart for all and first 600 iteration.
 
 Except for all/single results you can define your own combined charts (to compare e.g. pattern match with ooo). Those groups are defined in [Chart.scala](project/Chart.scala)
- - in [`charts` value](Chart.scala) for HotBenchmarks
- - in [`combinedCharts` value](Chart.scala) for [WarmingBenchmarks]() and [WarmupBenchmarks]()
+ - in [`charts` value](project/Chart.scala#L209-L231) for [HotBenchmarks](src/main/scala/rpg/bench/Benchmarks.scala#L149-L154)
+ - in [`combinedCharts` value](project/Chart.scala#L31-L38) for [WarmingBenchmarks](src/main/scala/rpg/bench/Benchmarks.scala#L158-L163) and [WarmupBenchmarks](src/main/scala/rpg/bench/Benchmarks.scala#L166-L171)
  
